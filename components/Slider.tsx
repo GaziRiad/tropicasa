@@ -1,8 +1,6 @@
 "use client";
 
 import React from "react";
-import "keen-slider/keen-slider.min.css";
-import { useKeenSlider } from "keen-slider/react"; // import from 'keen-slider/react.es' for to get an ES module
 import Image from "next/image";
 
 type Slide = {
@@ -15,36 +13,46 @@ type SliderProps = {
   slides: Slide[];
 };
 
-export default function Slider({ slides }: SliderProps) {
-  const [sliderRef, instanceRef] = useKeenSlider(
-    {
-      slideChanged() {
-        console.log("slide changed");
-      },
-      slides: {
-        perView: 4,
-        spacing: 56,
-      },
-    },
-    [
-      // add plugins here
-    ]
-  );
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
+export default function Slider({ slides }: SliderProps) {
   return (
-    <div ref={sliderRef} className="keen-slider">
-      {slides.map((item, index) => (
-        <div
-          key={index}
-          className="keen-slider__slide overflow-hidden rounded-[36px] bg-[#292828] text-white"
-        >
-          <Image src={item.img} alt={item.title} width={500} height={300} />
-          <div>
-            <p>{item.title}</p>
-            <p>{item.description}</p>
-          </div>
-        </div>
-      ))}
-    </div>
+    <Carousel
+      opts={{
+        align: "center",
+      }}
+      className="w-full mx-auto"
+    >
+      <CarouselContent className="">
+        {slides.map((item, index) => (
+          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 ">
+            <div
+              key={index}
+              className="overflow-hidden rounded-[36px] bg-[#292828] text-white m-4"
+            >
+              <Image
+                src={item.img}
+                alt={item.title}
+                width={1200}
+                height={1200}
+                className=" h-64"
+              />
+              <div className="p-5">
+                <p>{item.title}</p>
+                <p>{item.description}</p>
+              </div>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious className="absolute left-0 top-1/2 transform -translate-y-1/2 md:left-4 lg:left-8" />
+      <CarouselNext className="absolute right-0 top-1/2 transform -translate-y-1/2 md:right-4 lg:right-8" />
+    </Carousel>
   );
 }

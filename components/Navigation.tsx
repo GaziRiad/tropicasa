@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Navigation() {
   return (
-    <header className="max-w-7xl mx-auto flex items-center justify-between pt-7 pb-6">
+    <header className="max-w-7xl mx-auto flex items-center justify-between pt-7 pb-6 px-5 lg:px-0">
       <Logo />
       <nav>
         <ul>
