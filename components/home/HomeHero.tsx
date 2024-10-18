@@ -25,7 +25,7 @@ export default async function HomeHero() {
       <h1 className="font-bold text-2xl lg:text-[57px] mb-6 leading-[0.83]">
         Free SEO Resources, for your sites success
       </h1>
-      <p className="mb-8">
+      <p className="mb-8 text-lg">
         Your go-to library for top-notch SEO PDFs, completely free.
       </p>
       <ul className="text-black flex items-center gap-8 lg:gap-9 flex-wrap justify-center">

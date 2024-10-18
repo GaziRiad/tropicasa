@@ -11,7 +11,7 @@ export default function Navigation() {
           <li>
             <Link
               href="#"
-              className="text-sm rounded-full bg-black border-[1.5px] border-[#a6a6a6] transition-all text-white py-2 px-4 hover:bg-black/85"
+              className="text-sm rounded-full bg-black border-[1.5px] border-[#a6a6a6] transition-all text-white py-3 px-4 hover:bg-black/85"
             >
               Post SEO resource
             </Link>
