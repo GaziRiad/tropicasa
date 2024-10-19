@@ -34,7 +34,7 @@ export default function Slider({ slides }: SliderProps) {
           <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 ">
             <div
               key={index}
-              className="overflow-hidden rounded-[36px] bg-[#292828] text-white m-4"
+              className="overflow-hidden rounded-3xl lg:rounded-[36px] bg-[#292828] text-white m-4"
             >
               <Image
                 src={item.img}
@@ -51,8 +51,8 @@ export default function Slider({ slides }: SliderProps) {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="absolute left-0 top-1/2 transform -translate-y-1/2 md:left-4 lg:left-8" />
-      <CarouselNext className="absolute right-0 top-1/2 transform -translate-y-1/2 md:right-4 lg:right-8" />
+      <CarouselPrevious className="absolute top-[105%] bg-black [&>svg]:text-white hover:bg-black/80 [&>svg]:h-8 [&>svg]:w-8 transform -translate-y-1/2 md:left-4 left-8" />
+      <CarouselNext className="absolute left-20 lg:left-14 top-[105%] bg-black [&>svg]:text-white hover:bg-black/80 [&>svg]:h-8 [&>svg]:w-8 transform -translate-y-1/2 md:right-4 lg:right-8" />
     </Carousel>
   );
 }

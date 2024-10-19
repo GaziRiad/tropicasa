@@ -3,7 +3,7 @@ import React from "react";
 
 export default function TopicsBanner() {
   return (
-    <div className="bg-[#d9d9d9] mb-36 rounded-[64px] px-14 pt-14 pb-9 text-black text-center">
+    <div className="bg-[#d9d9d9] mb-14 lg:mb-36 rounded-3xl mx-5 lg:mx-0 lg:rounded-[64px] px-14 pt-14 pb-9 text-black text-center">
       <div>
         <h2 className="font-bold font-display text-2xl lg:text-[57px] mb-6 leading-[1.03]">
           And more <span className="text-[#ff914d]">topics</span> on{" "}

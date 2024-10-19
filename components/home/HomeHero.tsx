@@ -21,7 +21,7 @@ const Topics = [
 
 export default async function HomeHero() {
   return (
-    <div className="bg-gradient-to-r from-[#1b1b1b] to-[#6c6c6c] pt-12 pb-14 lg:pb-28 px-4 lg:px-24 rounded-[36px] text-white text-center mb-20 mx-5 lg:mx-0">
+    <div className="bg-gradient-to-r from-[#1b1b1b] to-[#6c6c6c] pt-12 pb-14 lg:pb-28 px-4 lg:px-24 rounded-3xl lg:rounded-[36px] text-white text-center mb-14 lg:mb-20 mx-5 lg:mx-0">
       <h1 className="font-bold font-display text-2xl lg:text-[57px] mb-6 leading-[0.83]">
         Free SEO Resources, for your sites success
       </h1>
