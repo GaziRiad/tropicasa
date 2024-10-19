@@ -9,14 +9,12 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-export default function FormModal() {
+import { ReactNode } from "react";
+
+export default function FormModal({ children }: { children: ReactNode }) {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button className="rounded-full border-[1.5px] border-[#a6a6a6] bg-black px-4 py-3 text-sm text-white transition-all hover:bg-black/85">
-          Post SEO resource
-        </Button>
-      </DialogTrigger>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="!mx-auto w-full max-w-[90%] px-4 sm:max-w-[425px] sm:px-6">
         <DialogHeader>
           <DialogTitle>Please fill the form</DialogTitle>

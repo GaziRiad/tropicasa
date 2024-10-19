@@ -1,27 +1,30 @@
 import React from "react";
 import { FiFileText } from "react-icons/fi";
 import { GoArrowRight } from "react-icons/go";
+import FormModal from "../FormModal";
 
 export default function ShareBanner() {
   return (
-    <div className="bg-gradient-to-r mb-14 lg:mb-36 from-[#5de0e6] to-[#004aad] rounded-3xl lg:rounded-[64px] mx-5 lg:mx-0 px-5 lg:px-14 pt-14 pb-9 text-white lg:flex-row flex-col flex items-start gap-3 lg:gap-14 justify-start">
-      <div className="lg:text-[120px] text-5xl">
+    <div className="mx-5 mb-14 flex flex-col items-start justify-start gap-3 rounded-3xl bg-gradient-to-r from-[#5de0e6] to-[#004aad] px-5 pb-9 pt-14 text-white lg:mx-0 lg:mb-36 lg:flex-row lg:gap-14 lg:rounded-[64px] lg:px-14">
+      <div className="text-5xl lg:text-[120px]">
         <FiFileText />
       </div>
       <div>
-        <h2 className="font-bold font-display text-2xl lg:text-[57px] mb-6 leading-[1.03] max-w-3xl">
+        <h2 className="mb-6 max-w-3xl font-display text-2xl font-bold leading-[1.03] lg:text-[57px]">
           Share your SEO resource with us!
         </h2>
-        <p className="lg:text-xl text-lg max-w-lg mb-8">
+        <p className="mb-8 max-w-lg text-lg lg:text-xl">
           Be sure to post it, our community would greatly appreciate it!
         </p>
 
-        <button className="flex items-center transition-all hover:bg-white/95 justify-center bg-white  text-[#4dbbff] gap-2 text-sm rounded-xl font-semibold px-4 py-4">
-          <span>Share resource</span>
-          <span>
-            <GoArrowRight size={18} />
-          </span>
-        </button>
+        <FormModal>
+          <button className="flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-4 text-sm font-semibold text-[#4dbbff] transition-all hover:bg-white/95">
+            <span>Share resource</span>
+            <span>
+              <GoArrowRight size={18} />
+            </span>
+          </button>
+        </FormModal>
       </div>
     </div>
   );
