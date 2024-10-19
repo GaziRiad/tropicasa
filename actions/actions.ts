@@ -2,7 +2,6 @@
 
 import { google } from "googleapis";
 import { JWT } from "google-auth-library";
-import { cache } from "react";
 
 // Replace these with your actual values
 const SPREADSHEET_ID = "1DgmLlNBA4WDKUzCM5ztnumTAy8x6kevfxeg4Aq1QuKM";
@@ -16,7 +15,7 @@ const serviceAccountAuth = new JWT({
 });
 
 // Cache the fetchSheetData function
-const cachedFetchSheetData = cache(async () => {
+const cachedFetchSheetData = async () => {
   try {
     const sheets = google.sheets({ version: "v4", auth: serviceAccountAuth });
     const response = await sheets.spreadsheets.values.get({
@@ -42,7 +41,7 @@ const cachedFetchSheetData = cache(async () => {
     console.error("Error fetching Google Sheets data:", error);
     return { success: false, error: "Failed to fetch data." };
   }
-});
+};
 
 export async function fetchSheetData() {
   return cachedFetchSheetData();
