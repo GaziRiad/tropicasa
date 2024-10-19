@@ -13,18 +13,18 @@ export default function FormModal() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="text-sm rounded-full bg-black border-[1.5px] border-[#a6a6a6] transition-all text-white py-3 px-4 hover:bg-black/85">
+        <Button className="rounded-full border-[1.5px] border-[#a6a6a6] bg-black px-4 py-3 text-sm text-white transition-all hover:bg-black/85">
           Post SEO resource
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="!mx-auto w-full max-w-[90%] px-4 sm:max-w-[425px] sm:px-6">
         <DialogHeader>
           <DialogTitle>Please fill the form</DialogTitle>
           <DialogDescription>
             Thank you for contributing to our SEO resources library.
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4 h-96"></div>
+        <div className="grid h-96 gap-4 py-4"></div>
         <DialogFooter>
           <Button type="submit" className="">
             Submit

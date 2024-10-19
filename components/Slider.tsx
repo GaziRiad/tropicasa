@@ -3,14 +3,8 @@
 import React from "react";
 import Image from "next/image";
 
-type Slide = {
-  img: string;
-  title: string;
-  description: string;
-};
-
 type SliderProps = {
-  slides: Slide[];
+  slides: SEOResource[];
 };
 
 import {
@@ -20,6 +14,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { SEOResource } from "@/types/types";
+import Link from "next/link";
 
 export default function Slider({ slides }: SliderProps) {
   return (
@@ -27,32 +23,36 @@ export default function Slider({ slides }: SliderProps) {
       opts={{
         align: "center",
       }}
-      className="w-full mx-auto"
+      className="mx-auto w-full"
     >
       <CarouselContent className="">
         {slides.map((item, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 ">
-            <div
-              key={index}
-              className="overflow-hidden rounded-3xl lg:rounded-[36px] bg-[#292828] text-white m-4"
-            >
-              <Image
-                src={item.img}
-                alt={item.title}
-                width={1200}
-                height={1200}
-                className=" h-64"
-              />
-              <div className="p-5">
-                <p>{item.title}</p>
-                <p>{item.description}</p>
+          <CarouselItem key={index} className="flex md:basis-1/2 lg:basis-1/3">
+            <div className="m-4 flex flex-1 flex-col overflow-hidden rounded-3xl bg-[#292828] text-white lg:rounded-[36px]">
+              <div className="relative h-64 w-full">
+                <Image
+                  src="/images/messi.jpg"
+                  alt={item.title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-t-3xl lg:rounded-t-[36px]"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <p className="text-lg font-medium">{item.title}</p>
+                <p className="mt-auto text-sm text-[#a6a6a6]">
+                  {`${item.description.substring(0, 120)}...`}
+                </p>
+                <Link href="#" className="text-md mt-4 text-blue-400">
+                  Read more
+                </Link>
               </div>
             </div>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="absolute top-[105%] bg-black [&>svg]:text-white hover:bg-black/80 [&>svg]:h-8 [&>svg]:w-8 transform -translate-y-1/2 md:left-4 left-8" />
-      <CarouselNext className="absolute left-20 lg:left-14 top-[105%] bg-black [&>svg]:text-white hover:bg-black/80 [&>svg]:h-8 [&>svg]:w-8 transform -translate-y-1/2 md:right-4 lg:right-8" />
+      <CarouselPrevious className="absolute left-8 top-[105%] -translate-y-1/2 transform bg-black hover:bg-black/80 md:left-4 [&>svg]:h-8 [&>svg]:w-8 [&>svg]:text-white" />
+      <CarouselNext className="absolute left-20 top-[105%] -translate-y-1/2 transform bg-black hover:bg-black/80 md:right-4 lg:left-14 lg:right-8 [&>svg]:h-8 [&>svg]:w-8 [&>svg]:text-white" />
     </Carousel>
   );
 }

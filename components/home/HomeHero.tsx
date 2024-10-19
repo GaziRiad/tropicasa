@@ -15,31 +15,27 @@ const Topics = [
   { title: "Trends & Updates", link: "#" },
 ];
 
-// const fetchSheetsData = async () => {
-//   return "";
-// };
-
 export default async function HomeHero() {
   return (
-    <div className="bg-gradient-to-r from-[#1b1b1b] to-[#6c6c6c] pt-12 pb-14 lg:pb-28 px-4 lg:px-24 rounded-3xl lg:rounded-[36px] text-white text-center mb-14 lg:mb-20 mx-5 lg:mx-0">
-      <h1 className="font-bold font-display text-2xl lg:text-[57px] mb-6 leading-[0.83]">
+    <div className="mx-5 mb-14 rounded-3xl bg-gradient-to-r from-[#1b1b1b] to-[#6c6c6c] px-4 pb-14 pt-12 text-center text-white lg:mx-0 lg:mb-20 lg:rounded-[36px] lg:px-24 lg:pb-28">
+      <h1 className="mb-6 font-display text-2xl font-bold leading-[0.83] lg:text-[57px]">
         Free SEO Resources, for your sites success
       </h1>
       <p className="mb-8 text-lg">
         Your go-to library for top-notch SEO PDFs, completely free.
       </p>
-      <ul className="text-black flex items-center gap-8 lg:gap-9 flex-wrap justify-center">
+      <ul className="flex flex-wrap items-center justify-center gap-8 text-black lg:gap-9">
         {Topics.map((topic, index) => (
           <li key={index}>
             <Link
               href={""}
-              className="bg-[#f2f3f4] transition-all hover:bg-[#f2f3f4]/80 border-[1.5px] border-[#a6a6a6] text-xs w-fit rounded-full py-3 px-6"
+              className="w-fit rounded-full border-[1.5px] border-[#a6a6a6] bg-[#f2f3f4] px-6 py-3 text-xs transition-all hover:bg-[#f2f3f4]/80"
             >
               {topic.title}
             </Link>
           </li>
         ))}
-        <li className="bg-[#ff914d] text-white font-bold transition-all border-[1.5px] border-[#a6a6a6] text-xs w-fit rounded-full py-3 px-6">
+        <li className="w-fit rounded-full border-[1.5px] border-[#a6a6a6] bg-[#ff914d] px-6 py-3 text-xs font-bold text-white transition-all">
           + more soon!
         </li>
       </ul>
