@@ -7,7 +7,7 @@ export default function ShareBanner() {
     <div className="bg-gradient-to-r mb-36 from-[#5de0e6] to-[#004aad] rounded-[64px] px-14 pt-14 pb-9 text-white flex items-start gap-14 justify-start">
       <FiFileText size={120} />
       <div>
-        <h2 className="font-bold text-2xl lg:text-[57px] mb-6 leading-[1.03] max-w-3xl">
+        <h2 className="font-bold font-display text-2xl lg:text-[57px] mb-6 leading-[1.03] max-w-3xl">
           Share your SEO resource with us!
         </h2>
         <p className="text-xl max-w-lg mb-8">

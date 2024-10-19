@@ -1,3 +1,5 @@
+import Footer from "@/components/Footer";
+import AccordionSection from "@/components/home/AccordionSection";
 import GirdSection from "@/components/home/GirdSection";
 import HomeHero from "@/components/home/HomeHero";
 import ShareBanner from "@/components/home/ShareBanner";
@@ -38,17 +40,21 @@ const CONTENT = {
 
 export default function Home() {
   return (
-    <div className=" max-w-6xl mx-auto">
-      <HomeHero />
-      <GirdSection content={CONTENT} />
-      <GirdSection content={CONTENT} />
-      <ShareBanner />
-      <GirdSection content={CONTENT} />
-      <GirdSection content={CONTENT} />
-      <GirdSection content={CONTENT} />
-      <GirdSection content={CONTENT} />
-      <GirdSection content={CONTENT} />
-      <TopicsBanner />
-    </div>
+    <>
+      <div className="max-w-6xl mx-auto">
+        <HomeHero />
+        <GirdSection content={CONTENT} />
+        <GirdSection content={CONTENT} />
+        <ShareBanner />
+        <GirdSection content={CONTENT} />
+        <GirdSection content={CONTENT} />
+        <GirdSection content={CONTENT} />
+        <GirdSection content={CONTENT} />
+        <GirdSection content={CONTENT} />
+        <TopicsBanner />
+        <AccordionSection />
+      </div>
+      <Footer />
+    </>
   );
 }
