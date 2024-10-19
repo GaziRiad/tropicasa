@@ -9,11 +9,6 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-export const creata = localFont({
-  src: "./fonts/Creata-Bold.woff",
-  variable: "--font-creataBold",
-});
-
 export const metadata: Metadata = {
   title: {
     template: "Free SEO Resources & Community Contributions",
@@ -28,13 +23,18 @@ export const metadata: Metadata = {
   },
 };
 
+const creata = localFont({
+  src: "./fonts/Creata-Bold.woff",
+  variable: "--font-creataBold",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={creata.variable}>
       <body className={`antialiased ${inter.className} bg-[#f2f3f4]`}>
         <Navigation />
         {children}
