@@ -44,7 +44,6 @@ export default function Slider({ slides }: SliderProps) {
                 </p>
                 <Link
                   href={`/${item.Topic}/${item.ID}`}
-                  target="_blank"
                   className="text-md mt-4 text-blue-400"
                 >
                   Read more

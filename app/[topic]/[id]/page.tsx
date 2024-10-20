@@ -1,4 +1,5 @@
 import { fetchDataByTitle } from "@/actions/actions";
+import { BreadCrumbComp } from "@/components/BreadCrumbComp";
 import DownloadButton from "@/components/DownloadButton";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -11,12 +12,13 @@ async function page({ params }: pageProps) {
   const info = await fetchDataByTitle(params.id);
   const data = info.data;
 
-  console.log(data);
   if (!data) return <p>LOADING...</p>;
 
   return (
     <>
       <div className="mx-auto max-w-6xl px-5 lg:px-0">
+        <BreadCrumbComp data={data} />
+
         <h2 className="mb-2 font-display text-3xl lg:mb-4 lg:text-5xl">
           {data.Title}
         </h2>

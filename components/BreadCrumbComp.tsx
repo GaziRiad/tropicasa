@@ -4,11 +4,19 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbList,
-  BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-export function BreadCrumbComp() {
+type BreadCrumbCompProps = {
+  type?: "page" | "topics";
+  data: {
+    ID?: string;
+    Topic: string;
+    Title?: string;
+  };
+};
+
+export function BreadCrumbComp({ type = "page", data }: BreadCrumbCompProps) {
   return (
     <Breadcrumb className="mb-7">
       <BreadcrumbList>
@@ -19,10 +27,23 @@ export function BreadCrumbComp() {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage className="text-sm lg:text-lg">
-            What is SEO
-          </BreadcrumbPage>
+          <Link href={`/${data.Topic}`} className="text-sm lg:text-lg">
+            {data.Topic}
+          </Link>
         </BreadcrumbItem>
+        {type === "page" && (
+          <>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <Link
+                href={`/${data.Topic}/${data.ID}`}
+                className="text-sm lg:text-lg"
+              >
+                {data.Title}
+              </Link>
+            </BreadcrumbItem>
+          </>
+        )}
       </BreadcrumbList>
     </Breadcrumb>
   );
