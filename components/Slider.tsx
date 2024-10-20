@@ -43,7 +43,11 @@ export default function Slider({ slides }: SliderProps) {
                 <p className="mt-auto text-sm text-[#a6a6a6]">
                   {`${item.description.substring(0, 120)}...`}
                 </p>
-                <Link href="#" className="text-md mt-4 text-blue-400">
+                <Link
+                  href={`/${item.ID}`}
+                  target="_blank"
+                  className="text-md mt-4 text-blue-400"
+                >
                   Read more
                 </Link>
               </div>

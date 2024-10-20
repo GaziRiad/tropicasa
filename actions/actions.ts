@@ -5,7 +5,7 @@ import { JWT } from "google-auth-library";
 
 // Replace these with your actual values
 const SPREADSHEET_ID = "1DgmLlNBA4WDKUzCM5ztnumTAy8x6kevfxeg4Aq1QuKM";
-const RANGE = "Resources!A:G"; // Adjust this to your desired range
+const RANGE = "Resources!A:H"; // Adjust this to your desired range
 
 // Load the service account key JSON file
 const serviceAccountAuth = new JWT({
@@ -47,22 +47,23 @@ export async function fetchSheetData() {
   return cachedFetchSheetData();
 }
 
-export async function fetchDataByTopic(topic: string) {
+export async function fetchDataByTitle(id: string) {
+  console.log(id);
   const result = await cachedFetchSheetData();
   if (result.success) {
-    const filteredData = result?.data?.filter((item) => item.Topic === topic);
-    return { success: true, data: filteredData };
+    const filteredData = result?.data?.filter((item) => item.ID === id);
+    return { success: true, data: filteredData![0] };
   } else {
     return result; // Return the error if fetching failed
   }
 }
 
-export async function fetchAllTopics() {
-  const result = await cachedFetchSheetData();
-  if (result.success) {
-    const topics = Array.from(new Set(result?.data?.map((item) => item.Topic)));
-    return { success: true, data: topics };
-  } else {
-    return result; // Return the error if fetching failed
-  }
-}
+// export async function fetchAllTopics() {
+//   const result = await cachedFetchSheetData();
+//   if (result.success) {
+//     const topics = Array.from(new Set(result?.data?.map((item) => item.Topic)));
+//     return { success: true, data: topics };
+//   } else {
+//     return result; // Return the error if fetching failed
+//   }
+// }

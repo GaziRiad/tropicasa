@@ -19,6 +19,7 @@ export default async function Home() {
       results?.data
         ?.filter((item) => item.Topic === "What is SEO")
         .map((item) => ({
+          ID: item.ID,
           title: item.Title,
           description: item.Description,
           author: item.Author,
@@ -39,6 +40,7 @@ export default async function Home() {
             item.Topic === "On-Page SEO" || item.Topic === "Off-Page SEO",
         )
         .map((item) => ({
+          ID: item.ID,
           title: item.Title,
           description: item.Description,
           author: item.Author,
@@ -56,6 +58,7 @@ export default async function Home() {
       results?.data
         ?.filter((item) => item.Topic === "Keyword Research")
         .map((item) => ({
+          ID: item.ID,
           title: item.Title,
           description: item.Description,
           author: item.Author,
@@ -73,6 +76,7 @@ export default async function Home() {
       results?.data
         ?.filter((item) => item.Topic === "Link Building")
         .map((item) => ({
+          ID: item.ID,
           title: item.Title,
           description: item.Description,
           author: item.Author,
@@ -90,6 +94,7 @@ export default async function Home() {
       results?.data
         ?.filter((item) => item.Topic === "Technical SEO")
         .map((item) => ({
+          ID: item.ID,
           title: item.Title,
           description: item.Description,
           author: item.Author,
@@ -107,6 +112,7 @@ export default async function Home() {
       results?.data
         ?.filter((item) => item.Topic === "Local SEO")
         .map((item) => ({
+          ID: item.ID,
           title: item.Title,
           description: item.Description,
           author: item.Author,
@@ -124,6 +130,7 @@ export default async function Home() {
       results?.data
         ?.filter((item) => item.Topic === "Content SEO")
         .map((item) => ({
+          ID: item.ID,
           title: item.Title,
           description: item.Description,
           author: item.Author,
