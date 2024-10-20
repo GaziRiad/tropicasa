@@ -1,7 +1,6 @@
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -30,11 +29,6 @@ export default function FormModal({ children }: { children: ReactNode }) {
             Loading…
           </iframe>
         </div>
-        {/* <DialogFooter>
-          <Button type="submit" className="">
-            Submit
-          </Button>
-        </DialogFooter> */}
       </DialogContent>
     </Dialog>
   );

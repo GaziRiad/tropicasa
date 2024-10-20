@@ -3,19 +3,19 @@ import React from "react";
 
 export default function TopicsBanner() {
   return (
-    <div className="bg-[#d9d9d9] mb-14 lg:mb-36 rounded-3xl mx-5 lg:mx-0 lg:rounded-[64px] px-14 pt-14 pb-9 text-black text-center">
+    <div className="mx-5 mb-14 rounded-3xl bg-[#d9d9d9] px-14 pb-9 pt-14 text-center text-black lg:mx-0 lg:mb-36 lg:rounded-[64px]">
       <div>
-        <h2 className="font-bold font-display text-2xl lg:text-[57px] mb-6 leading-[1.03]">
+        <h2 className="mb-6 font-display text-2xl font-bold leading-[1.03] lg:text-[57px]">
           And more <span className="text-[#ff914d]">topics</span> on{" "}
           <span className="text-[#ff914d]">SEO</span>!
         </h2>
-        <p className="text-xl text-[#1b1b1b] mb-12 max-w-lg mx-auto">
+        <p className="mx-auto mb-12 max-w-lg text-xl text-[#1b1b1b]">
           Browse through our collection of topics and specialised resources on
           SEO
         </p>
         <Link
-          href="#"
-          className="text-sm rounded-full bg-black border-[1.5px] border-[#a6a6a6] transition-all text-white py-3 px-4 hover:bg-black/85"
+          href="/What_is_SEO"
+          className="rounded-full border-[1.5px] border-[#a6a6a6] bg-black px-4 py-3 text-sm text-white transition-all hover:bg-black/85"
         >
           Browse all resources
         </Link>
