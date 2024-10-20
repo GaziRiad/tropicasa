@@ -1,6 +1,7 @@
 import { fetchDataByTitle } from "@/actions/actions";
 import DownloadButton from "@/components/DownloadButton";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 
 type pageProps = {
   params: { id: string };
@@ -25,8 +26,14 @@ async function page({ params }: pageProps) {
               <span>{data.Author}</span>
             </p>
             <p className="mb-6">
-              <strong>Credit: </strong>
-              <span>{data.Author}</span>
+              <strong>Website: </strong>
+              <Link
+                href={data.WebsiteURL}
+                target="_blank"
+                className="underline underline-offset-2 transition-all hover:text-blue-700"
+              >
+                {data.WebsiteURL}
+              </Link>
             </p>
           </div>
           <DownloadButton fileUrl={data.HostURL} fileName={data.Title} />
@@ -34,9 +41,9 @@ async function page({ params }: pageProps) {
 
         <iframe
           src={`${data.HostURL.replace("view", "preview")}`}
-          width="100%"
+          width="85%"
           height="1200px"
-          style={{ border: "none", marginBottom: "2rem" }}
+          style={{ border: "none", marginBottom: "2rem", margin: "0 auto" }}
           loading="lazy"
         />
       </div>

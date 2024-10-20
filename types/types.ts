@@ -6,4 +6,5 @@ export interface SEOResource {
   Description: string;
   Author: string;
   pdfId: string;
+  WebsiteURL: string;
 }
