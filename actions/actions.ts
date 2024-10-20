@@ -2,11 +2,10 @@
 
 import { google } from "googleapis";
 import { JWT } from "google-auth-library";
-import { unstable_cache } from "next/cache";
 
 // Replace these with your actual values
-const SPREADSHEET_ID = "1DgmLlNBA4WDKUzCM5ztnumTAy8x6kevfxeg4Aq1QuKM";
-const RANGE = "Resources!A:H"; // Adjust this to your desired range
+const SPREADSHEET_ID = "1jmTsBrxGTcS_zNvcMnCKeqTt1yRgK5mnb9lpMbJO7aM";
+const RANGE = "Resources!A:I"; // Adjust this to your desired range
 
 // Load the service account key JSON file
 const serviceAccountAuth = new JWT({
@@ -15,8 +14,8 @@ const serviceAccountAuth = new JWT({
   scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
 });
 
-// Original fetchSheetData function
-const fetchSheetDataOriginal = async () => {
+// Cache the fetchSheetData function
+export const fetchSheetData = async () => {
   try {
     const sheets = google.sheets({ version: "v4", auth: serviceAccountAuth });
     const response = await sheets.spreadsheets.values.get({
@@ -44,27 +43,19 @@ const fetchSheetDataOriginal = async () => {
   }
 };
 
-// Cached version of fetchSheetData
-export const fetchSheetData = unstable_cache(
-  async () => fetchSheetDataOriginal(),
-  ["sheet-data"],
-  { revalidate: 1800 }, // Revalidate every hour (3600 seconds)
-);
-
 export async function fetchDataByTopic(topic: string) {
   const result = await fetchSheetData();
   if (result.success) {
-    const filteredData = result.data?.filter((item) => item.Topic === topic);
+    const filteredData = result?.data?.filter((item) => item.Topic === topic);
     return { success: true, data: filteredData };
   } else {
     return result; // Return the error if fetching failed
   }
 }
-
 export async function fetchDataByTitle(id: string) {
   const result = await fetchSheetData();
   if (result.success) {
-    const filteredData = result.data?.filter((item) => item.ID === id);
+    const filteredData = result?.data?.filter((item) => item.ID === id);
     return { success: true, data: filteredData![0] };
   } else {
     return result; // Return the error if fetching failed
@@ -74,7 +65,7 @@ export async function fetchDataByTitle(id: string) {
 export async function fetchAllTopics() {
   const result = await fetchSheetData();
   if (result.success) {
-    const topics = Array.from(new Set(result.data?.map((item) => item.Topic)));
+    const topics = Array.from(new Set(result?.data?.map((item) => item.Topic)));
     return { success: true, data: topics };
   } else {
     return result; // Return the error if fetching failed
