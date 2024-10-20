@@ -48,7 +48,7 @@ const fetchSheetDataOriginal = async () => {
 export const fetchSheetData = unstable_cache(
   async () => fetchSheetDataOriginal(),
   ["sheet-data"],
-  { revalidate: 3600 }, // Revalidate every hour (3600 seconds)
+  { revalidate: 1800 }, // Revalidate every hour (3600 seconds)
 );
 
 export async function fetchDataByTopic(topic: string) {
