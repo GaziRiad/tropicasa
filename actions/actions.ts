@@ -2,6 +2,7 @@
 
 import { google } from "googleapis";
 import { JWT } from "google-auth-library";
+import { unstable_cache } from "next/cache";
 
 // Replace these with your actual values
 const SPREADSHEET_ID = "1jmTsBrxGTcS_zNvcMnCKeqTt1yRgK5mnb9lpMbJO7aM";
@@ -14,49 +15,54 @@ const serviceAccountAuth = new JWT({
   scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
 });
 
-// Cache the fetchSheetData function
-export const fetchSheetData = async () => {
-  try {
-    const sheets = google.sheets({ version: "v4", auth: serviceAccountAuth });
-    const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: SPREADSHEET_ID,
-      range: RANGE,
-    });
-
-    const rows = response.data.values;
-    if (rows?.length) {
-      // Assuming the first row contains headers
-      const headers = rows[0];
-      const data = rows.slice(1).map((row) => {
-        return headers.reduce((obj, header, index) => {
-          obj[header] = row[index];
-          return obj;
-        }, {});
+// Cache the fetchSheetData function with time-based revalidation
+export const fetchSheetData = unstable_cache(
+  async () => {
+    try {
+      const sheets = google.sheets({ version: "v4", auth: serviceAccountAuth });
+      const response = await sheets.spreadsheets.values.get({
+        spreadsheetId: SPREADSHEET_ID,
+        range: RANGE,
       });
-      return { success: true, data };
-    } else {
-      return { success: false, error: "No data found." };
+
+      const rows = response.data.values;
+      if (rows?.length) {
+        // Assuming the first row contains headers
+        const headers = rows[0];
+        const data = rows.slice(1).map((row) => {
+          return headers.reduce((obj, header, index) => {
+            obj[header] = row[index];
+            return obj;
+          }, {});
+        });
+        return { success: true, data };
+      } else {
+        return { success: false, error: "No data found." };
+      }
+    } catch (error) {
+      console.error("Error fetching Google Sheets data:", error);
+      return { success: false, error: "Failed to fetch data." };
     }
-  } catch (error) {
-    console.error("Error fetching Google Sheets data:", error);
-    return { success: false, error: "Failed to fetch data." };
-  }
-};
+  },
+  ["sheet-data"],
+  { revalidate: 1800 },
+);
 
 export async function fetchDataByTopic(topic: string) {
   const result = await fetchSheetData();
-  if (result.success) {
-    const filteredData = result?.data?.filter((item) => item.Topic === topic);
+  if (result.success && result.data) {
+    const filteredData = result.data.filter((item) => item.Topic === topic);
     return { success: true, data: filteredData };
   } else {
     return result; // Return the error if fetching failed
   }
 }
+
 export async function fetchDataByTitle(id: string) {
   const result = await fetchSheetData();
-  if (result.success) {
-    const filteredData = result?.data?.filter((item) => item.ID === id);
-    return { success: true, data: filteredData![0] };
+  if (result.success && result.data) {
+    const filteredData = result.data.find((item) => item.ID === id);
+    return { success: true, data: filteredData || null };
   } else {
     return result; // Return the error if fetching failed
   }
@@ -64,8 +70,8 @@ export async function fetchDataByTitle(id: string) {
 
 export async function fetchAllTopics() {
   const result = await fetchSheetData();
-  if (result.success) {
-    const topics = Array.from(new Set(result?.data?.map((item) => item.Topic)));
+  if (result.success && result.data) {
+    const topics = Array.from(new Set(result.data.map((item) => item.Topic)));
     return { success: true, data: topics };
   } else {
     return result; // Return the error if fetching failed
