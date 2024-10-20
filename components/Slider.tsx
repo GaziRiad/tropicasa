@@ -32,19 +32,19 @@ export default function Slider({ slides }: SliderProps) {
               <div className="relative h-64 w-full">
                 <Image
                   src="/images/messi.jpg"
-                  alt={item.title}
+                  alt={item.Title}
                   layout="fill"
                   objectFit="cover"
                   className="rounded-t-3xl lg:rounded-t-[36px]"
                 />
               </div>
               <div className="flex flex-1 flex-col p-5">
-                <p className="text-lg font-medium">{item.title}</p>
+                <p className="text-lg font-medium">{item.Title}</p>
                 <p className="mt-auto text-sm text-[#a6a6a6]">
-                  {`${item.description.substring(0, 120)}...`}
+                  {`${item.Description.substring(0, 120)}...`}
                 </p>
                 <Link
-                  href={`/${item.ID}`}
+                  href={`/${item.Topic}/${item.ID}`}
                   target="_blank"
                   className="text-md mt-4 text-blue-400"
                 >

@@ -9,7 +9,6 @@ import React from "react";
 
 export default async function Home() {
   const results = await fetchSheetData();
-  // const topics = Array.from(new Set(results?.data?.map((item) => item.Topic)));
 
   const Grid1Items = {
     title: "Getting Started",
@@ -20,11 +19,11 @@ export default async function Home() {
         ?.filter((item) => item.Topic === "What is SEO")
         .map((item) => ({
           ID: item.ID,
-          title: item.Title,
-          description: item.Description,
-          author: item.Author,
-          category: item.Category,
-          topic: item.Topic,
+          Title: item.Title,
+          Description: item.Description,
+          Author: item.Author,
+          Category: item.Category,
+          Topic: item.Topic,
           pdfLink: item["Host URL"],
         })) || [],
   };
@@ -41,11 +40,11 @@ export default async function Home() {
         )
         .map((item) => ({
           ID: item.ID,
-          title: item.Title,
-          description: item.Description,
-          author: item.Author,
-          category: item.Category,
-          topic: item.Topic,
+          Title: item.Title,
+          Description: item.Description,
+          Author: item.Author,
+          Category: item.Category,
+          Topic: item.Topic,
           pdfLink: item["Host URL"],
         })) || [],
   };
@@ -59,11 +58,11 @@ export default async function Home() {
         ?.filter((item) => item.Topic === "Keyword Research")
         .map((item) => ({
           ID: item.ID,
-          title: item.Title,
-          description: item.Description,
-          author: item.Author,
-          category: item.Category,
-          topic: item.Topic,
+          Title: item.Title,
+          Description: item.Description,
+          Author: item.Author,
+          Category: item.Category,
+          Topic: item.Topic,
           pdfLink: item["Host URL"],
         })) || [],
   };
@@ -77,11 +76,11 @@ export default async function Home() {
         ?.filter((item) => item.Topic === "Link Building")
         .map((item) => ({
           ID: item.ID,
-          title: item.Title,
-          description: item.Description,
-          author: item.Author,
-          category: item.Category,
-          topic: item.Topic,
+          Title: item.Title,
+          Description: item.Description,
+          Author: item.Author,
+          Category: item.Category,
+          Topic: item.Topic,
           pdfLink: item["Host URL"],
         })) || [],
   };
@@ -95,11 +94,11 @@ export default async function Home() {
         ?.filter((item) => item.Topic === "Technical SEO")
         .map((item) => ({
           ID: item.ID,
-          title: item.Title,
-          description: item.Description,
-          author: item.Author,
-          category: item.Category,
-          topic: item.Topic,
+          Title: item.Title,
+          Description: item.Description,
+          Author: item.Author,
+          Category: item.Category,
+          Topic: item.Topic,
           pdfLink: item["Host URL"],
         })) || [],
   };
@@ -113,11 +112,11 @@ export default async function Home() {
         ?.filter((item) => item.Topic === "Local SEO")
         .map((item) => ({
           ID: item.ID,
-          title: item.Title,
-          description: item.Description,
-          author: item.Author,
-          category: item.Category,
-          topic: item.Topic,
+          Title: item.Title,
+          Description: item.Description,
+          Author: item.Author,
+          Category: item.Category,
+          Topic: item.Topic,
           pdfLink: item["Host URL"],
         })) || [],
   };
@@ -131,11 +130,11 @@ export default async function Home() {
         ?.filter((item) => item.Topic === "Content SEO")
         .map((item) => ({
           ID: item.ID,
-          title: item.Title,
-          description: item.Description,
-          author: item.Author,
-          category: item.Category,
-          topic: item.Topic,
+          Title: item.Title,
+          Description: item.Description,
+          Author: item.Author,
+          Category: item.Category,
+          Topic: item.Topic,
           pdfLink: item["Host URL"],
         })) || [],
   };

@@ -7,7 +7,6 @@ type pageProps = {
 async function page({ params }: pageProps) {
   const info = await fetchDataByTitle(params.id);
   const data = info.data;
-  console.log(data);
 
   if (!data) return <p>LOADING...</p>;
 

@@ -1,9 +1,9 @@
 export interface SEOResource {
   ID: string;
-  category: string;
-  topic: string;
-  title: string;
-  description: string;
-  author: string;
+  Category: string;
+  Topic: string;
+  Title: string;
+  Description: string;
+  Author: string;
   pdfLink: string;
 }

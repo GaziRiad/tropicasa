@@ -47,8 +47,16 @@ export async function fetchSheetData() {
   return cachedFetchSheetData();
 }
 
+export async function fetchDataByTopic(topic: string) {
+  const result = await cachedFetchSheetData();
+  if (result.success) {
+    const filteredData = result?.data?.filter((item) => item.Topic === topic);
+    return { success: true, data: filteredData };
+  } else {
+    return result; // Return the error if fetching failed
+  }
+}
 export async function fetchDataByTitle(id: string) {
-  console.log(id);
   const result = await cachedFetchSheetData();
   if (result.success) {
     const filteredData = result?.data?.filter((item) => item.ID === id);
@@ -58,12 +66,12 @@ export async function fetchDataByTitle(id: string) {
   }
 }
 
-// export async function fetchAllTopics() {
-//   const result = await cachedFetchSheetData();
-//   if (result.success) {
-//     const topics = Array.from(new Set(result?.data?.map((item) => item.Topic)));
-//     return { success: true, data: topics };
-//   } else {
-//     return result; // Return the error if fetching failed
-//   }
-// }
+export async function fetchAllTopics() {
+  const result = await cachedFetchSheetData();
+  if (result.success) {
+    const topics = Array.from(new Set(result?.data?.map((item) => item.Topic)));
+    return { success: true, data: topics };
+  } else {
+    return result; // Return the error if fetching failed
+  }
+}
