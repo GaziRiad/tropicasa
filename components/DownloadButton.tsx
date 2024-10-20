@@ -37,10 +37,10 @@ export default function DownloadButton({
   return (
     <Button
       onClick={handleDownload}
-      className="flex items-center justify-center bg-[#d9d9d9] font-medium text-primary hover:bg-[rgb(200,200,200)]"
+      className="bg-[#d9d9d9] font-medium text-primary hover:bg-[rgb(200,200,200)]"
     >
       <span>Download</span>
-      <span className="text-2xl">
+      <span>
         <AiOutlineDownload size={22} />
       </span>
     </Button>

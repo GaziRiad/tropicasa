@@ -17,15 +17,17 @@ async function page({ params }: pageProps) {
   return (
     <>
       <div className="mx-auto max-w-6xl px-5 lg:px-0">
-        <h2 className="mb-4 font-display text-5xl">{data.Title}</h2>
-        <p className="mb-4 text-lg">{data.Description}</p>
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="mb-6">
+        <h2 className="mb-2 font-display text-3xl lg:mb-4 lg:text-5xl">
+          {data.Title}
+        </h2>
+        <p className="mb-2 text-lg lg:mb-4">{data.Description}</p>
+        <div className="mb-4 flex flex-col justify-between gap-2 lg:flex-row lg:items-center">
+          <div className="flex flex-col gap-3">
+            <p>
               <strong>Credit: </strong>
               <span>{data.Author}</span>
             </p>
-            <p className="mb-6">
+            <p>
               <strong>Website: </strong>
               <Link
                 href={data.WebsiteURL}
@@ -38,14 +40,15 @@ async function page({ params }: pageProps) {
           </div>
           <DownloadButton fileUrl={data.HostURL} fileName={data.Title} />
         </div>
-
-        <iframe
-          src={`${data.HostURL.replace("view", "preview")}`}
-          width="85%"
-          height="1200px"
-          style={{ border: "none", marginBottom: "2rem", margin: "0 auto" }}
-          loading="lazy"
-        />
+        <div className="mx-auto w-full lg:w-[90%]">
+          <iframe
+            src={`${data.HostURL.replace("view", "preview")}`}
+            width="100%"
+            height="1200px"
+            style={{ border: "none", marginBottom: "2rem" }}
+            loading="lazy"
+          />
+        </div>
       </div>
       <Footer />
     </>
