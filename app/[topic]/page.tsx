@@ -1,4 +1,5 @@
-import { fetchDataByTopic } from "@/actions/actions";
+import { fetchAllTopics, fetchDataByTopic } from "@/actions/actions";
+import SelectTopic from "@/components/SelectTopic";
 import Slider from "@/components/Slider";
 import React from "react";
 
@@ -7,6 +8,9 @@ type pageProps = {
 };
 
 export default async function page({ params }: pageProps) {
+  const res = await fetchAllTopics();
+  const topics = res.data;
+
   const topic = decodeURIComponent(params.topic.replace(/_/g, " "));
   const info = await fetchDataByTopic(topic);
   const data = info.data;
@@ -15,7 +19,10 @@ export default async function page({ params }: pageProps) {
 
   return (
     <div className="mx-auto max-w-6xl px-5 lg:px-0">
-      <h2 className="mb-4 font-display text-5xl">{topic}</h2>
+      <div className="flex items-center gap-4">
+        <h2 className="mb-4 font-display text-5xl">{topic}</h2>
+        {topics && <SelectTopic topics={topics} />}
+      </div>
       <p className="mb-4 text-lg">
         SEO, or Search Engine Optimization, is the process of improving a
         website&apos;s visibility on search engines like Google. By optimizing

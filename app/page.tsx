@@ -24,7 +24,7 @@ export default async function Home() {
           Author: item.Author,
           Category: item.Category,
           Topic: item.Topic,
-          pdfLink: item["Host URL"],
+          pdfId: item.HostURL,
         })) || [],
   };
 
@@ -45,7 +45,7 @@ export default async function Home() {
           Author: item.Author,
           Category: item.Category,
           Topic: item.Topic,
-          pdfLink: item["Host URL"],
+          pdfId: item.HostURL,
         })) || [],
   };
 
@@ -63,7 +63,7 @@ export default async function Home() {
           Author: item.Author,
           Category: item.Category,
           Topic: item.Topic,
-          pdfLink: item["Host URL"],
+          pdfId: item.HostURL,
         })) || [],
   };
 
@@ -81,7 +81,7 @@ export default async function Home() {
           Author: item.Author,
           Category: item.Category,
           Topic: item.Topic,
-          pdfLink: item["Host URL"],
+          pdfId: item.HostURL,
         })) || [],
   };
 
@@ -99,7 +99,7 @@ export default async function Home() {
           Author: item.Author,
           Category: item.Category,
           Topic: item.Topic,
-          pdfLink: item["Host URL"],
+          pdfId: item.HostURL,
         })) || [],
   };
 
@@ -117,7 +117,7 @@ export default async function Home() {
           Author: item.Author,
           Category: item.Category,
           Topic: item.Topic,
-          pdfLink: item["Host URL"],
+          pdfId: item.HostURL,
         })) || [],
   };
 
@@ -135,7 +135,7 @@ export default async function Home() {
           Author: item.Author,
           Category: item.Category,
           Topic: item.Topic,
-          pdfLink: item["Host URL"],
+          pdfId: item.HostURL,
         })) || [],
   };
 

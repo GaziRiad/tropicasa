@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 
 type SliderProps = {
@@ -31,7 +30,7 @@ export default function Slider({ slides }: SliderProps) {
             <div className="m-4 flex flex-1 flex-col overflow-hidden rounded-3xl bg-[#292828] text-white lg:rounded-[36px]">
               <div className="relative h-64 w-full">
                 <Image
-                  src="/images/messi.jpg"
+                  src={"/images/messi.jpg"}
                   alt={item.Title}
                   layout="fill"
                   objectFit="cover"
