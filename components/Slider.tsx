@@ -1,11 +1,8 @@
 "use client";
 
 import Image from "next/image";
-
-type SliderProps = {
-  slides: SEOResource[];
-};
-
+import Link from "next/link";
+import { SEOResource } from "@/types/types";
 import {
   Carousel,
   CarouselContent,
@@ -13,15 +10,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { SEOResource } from "@/types/types";
-import Link from "next/link";
-// import GoogleDriveImage from "./GoogleDriveImage";
+
+type SliderProps = {
+  slides: SEOResource[];
+};
 
 export default function Slider({ slides }: SliderProps) {
-  console.log(
-    slides[0].Image.replaceAll("/view?usp=sharing", "/uc?export=view"),
-  );
-
   return (
     <Carousel
       opts={{
@@ -32,29 +26,26 @@ export default function Slider({ slides }: SliderProps) {
       <CarouselContent className="">
         {slides.map((item, index) => (
           <CarouselItem key={index} className="flex md:basis-1/2 lg:basis-1/3">
-            <div className="m-4 flex flex-1 flex-col overflow-hidden rounded-3xl bg-[#292828] text-white lg:rounded-[36px]">
-              <div className="relative h-64 w-full">
-                <Image
-                  src={item.Image || "/images/messi.jpg"}
-                  alt={item.Title}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-t-3xl lg:rounded-t-[36px]"
-                />
+            <Link href={`/${item.Topic}/${item.ID}`} className="flex flex-1">
+              <div className="m-4 flex flex-1 flex-col overflow-hidden rounded-3xl bg-[#292828] text-white transition-transform duration-300 ease-in-out hover:scale-105 lg:rounded-[36px]">
+                <div className="relative h-64 w-full">
+                  <Image
+                    src={item.Image || "/images/messi.jpg"}
+                    alt={item.Title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-t-3xl lg:rounded-t-[36px]"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-5">
+                  <p className="text-lg font-medium">{item.Title}</p>
+                  <p className="mt-auto text-sm text-[#a6a6a6]">
+                    {`${item.Description.substring(0, 120)}...`}
+                  </p>
+                  <span className="text-md mt-4 text-blue-400">Read more</span>
+                </div>
               </div>
-              <div className="flex flex-1 flex-col p-5">
-                <p className="text-lg font-medium">{item.Title}</p>
-                <p className="mt-auto text-sm text-[#a6a6a6]">
-                  {`${item.Description.substring(0, 120)}...`}
-                </p>
-                <Link
-                  href={`/${item.Topic}/${item.ID}`}
-                  className="text-md mt-4 text-blue-400"
-                >
-                  Read more
-                </Link>
-              </div>
-            </div>
+            </Link>
           </CarouselItem>
         ))}
       </CarouselContent>

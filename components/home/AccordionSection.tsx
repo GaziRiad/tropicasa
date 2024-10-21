@@ -37,7 +37,7 @@ export default function AccordionSection() {
   return (
     <div className="px-5 lg:px-0">
       <h2 className="mb-4 font-display text-3xl font-bold capitalize text-secondary lg:mb-10 lg:text-6xl">
-        Topicasa SEO FAQ
+        Resora SEO FAQ
       </h2>
 
       <Accordion
