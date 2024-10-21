@@ -24,7 +24,7 @@ async function page({ params }: pageProps) {
   const info = await fetchDataByID(params.id);
   const data = info.data;
 
-  if (!data) return <p>LOADING...</p>;
+  if (!data) return null;
 
   return (
     <>

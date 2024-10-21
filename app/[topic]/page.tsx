@@ -27,7 +27,7 @@ export default async function page({ params }: pageProps) {
   const info = await fetchDataByTopic(topic);
   const data = info.data;
 
-  if (!data) return <p>Loading...</p>;
+  if (!data) return null;
 
   return (
     <div className="mx-auto mb-16 max-w-6xl px-5 lg:px-0">
