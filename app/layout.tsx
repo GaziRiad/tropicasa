@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import "./globals.css";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 const inter = Inter({
   style: ["normal", "italic"],
@@ -36,6 +37,7 @@ export default function RootLayout({
     <html lang="en" className={creata.variable}>
       <PlausibleProvider domain="resora.io">
         <body className={`antialiased ${inter.className} bg-[#f2f3f4]`}>
+          <ScrollToTop />
           <Navigation />
 
           {children}
