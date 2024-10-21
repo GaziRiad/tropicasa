@@ -36,25 +36,25 @@ const Items: Item[] = [
 export default function AccordionSection() {
   return (
     <div className="px-5 lg:px-0">
-      <h2 className="lg:text-6xl  text-3xl font-display font-bold capitalize mb-7 text-secondary">
+      <h2 className="mb-4 font-display text-3xl font-bold capitalize text-secondary lg:mb-10 lg:text-6xl">
         Topicasa SEO FAQ
       </h2>
 
       <Accordion
         type="single"
         collapsible
-        className="w-full flex flex-col gap-6 mb-20"
+        className="mb-20 flex w-full flex-col gap-6"
       >
         {Items.map((item, index) => (
           <AccordionItem
             key={index}
             value={item.title}
-            className="bg-white py-2 px-6 rounded-3xl lg:rounded-[36px]"
+            className="rounded-3xl bg-white px-6 py-2 lg:rounded-[36px]"
           >
-            <AccordionTrigger className="text-[#ff914d] text-base lg:text-lg font-normal hover:no-underline [&>svg]:text-black [&>svg]:h-8 [&>svg]:w-8">
+            <AccordionTrigger className="text-base font-normal text-[#ff914d] hover:no-underline lg:text-lg [&>svg]:h-8 [&>svg]:w-8 [&>svg]:text-black">
               {item.title}
             </AccordionTrigger>
-            <AccordionContent className="text-lg pr-4 text-primary">
+            <AccordionContent className="pr-4 text-lg text-primary">
               {item.text}
             </AccordionContent>
           </AccordionItem>

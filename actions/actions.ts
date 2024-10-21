@@ -45,7 +45,7 @@ export const fetchSheetData = unstable_cache(
     }
   },
   ["sheet-data"],
-  { revalidate: 1800 },
+  { revalidate: 1 },
 );
 
 export async function fetchDataByTopic(topic: string) {
@@ -58,7 +58,7 @@ export async function fetchDataByTopic(topic: string) {
   }
 }
 
-export async function fetchDataByTitle(id: string) {
+export async function fetchDataByID(id: string) {
   const result = await fetchSheetData();
   if (result.success && result.data) {
     const filteredData = result.data.find((item) => item.ID === id);

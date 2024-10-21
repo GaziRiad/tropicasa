@@ -2,11 +2,22 @@ import { fetchAllTopics, fetchDataByTopic } from "@/actions/actions";
 import { BreadCrumbComp } from "@/components/BreadCrumbComp";
 import SelectTopic from "@/components/SelectTopic";
 import Slider from "@/components/Slider";
+import { Metadata } from "next";
 import React from "react";
 
 type pageProps = {
   params: { topic: string };
 };
+
+export async function generateMetadata({
+  params,
+}: pageProps): Promise<Metadata> {
+  const topic = decodeURIComponent(params.topic.replace(/_/g, " "));
+
+  return {
+    title: `${topic} - Free SEO Resources & Community Contributions`,
+  };
+}
 
 export default async function page({ params }: pageProps) {
   const res = await fetchAllTopics();

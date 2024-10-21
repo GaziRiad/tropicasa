@@ -15,8 +15,13 @@ import {
 } from "@/components/ui/carousel";
 import { SEOResource } from "@/types/types";
 import Link from "next/link";
+// import GoogleDriveImage from "./GoogleDriveImage";
 
 export default function Slider({ slides }: SliderProps) {
+  console.log(
+    slides[0].Image.replaceAll("/view?usp=sharing", "/uc?export=view"),
+  );
+
   return (
     <Carousel
       opts={{
@@ -30,7 +35,7 @@ export default function Slider({ slides }: SliderProps) {
             <div className="m-4 flex flex-1 flex-col overflow-hidden rounded-3xl bg-[#292828] text-white lg:rounded-[36px]">
               <div className="relative h-64 w-full">
                 <Image
-                  src={"/images/messi.jpg"}
+                  src={item.Image || "/images/messi.jpg"}
                   alt={item.Title}
                   layout="fill"
                   objectFit="cover"

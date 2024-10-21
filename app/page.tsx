@@ -25,6 +25,7 @@ export default async function Home() {
           Category: item.Category,
           Topic: item.Topic,
           pdfId: item.HostURL,
+          Image: item.Image,
           WebsiteURL: item.WebsiteURL,
         })) || [],
   };
@@ -47,6 +48,7 @@ export default async function Home() {
           Category: item.Category,
           Topic: item.Topic,
           pdfId: item.HostURL,
+          Image: item.Image,
           WebsiteURL: item.WebsiteURL,
         })) || [],
   };
@@ -66,6 +68,7 @@ export default async function Home() {
           Category: item.Category,
           Topic: item.Topic,
           pdfId: item.HostURL,
+          Image: item.Image,
           WebsiteURL: item.WebsiteURL,
         })) || [],
   };
@@ -85,6 +88,7 @@ export default async function Home() {
           Category: item.Category,
           Topic: item.Topic,
           pdfId: item.HostURL,
+          Image: item.Image,
           WebsiteURL: item.WebsiteURL,
         })) || [],
   };
@@ -104,6 +108,7 @@ export default async function Home() {
           Category: item.Category,
           Topic: item.Topic,
           pdfId: item.HostURL,
+          Image: item.Image,
           WebsiteURL: item.WebsiteURL,
         })) || [],
   };
@@ -123,6 +128,7 @@ export default async function Home() {
           Category: item.Category,
           Topic: item.Topic,
           pdfId: item.HostURL,
+          Image: item.Image,
           WebsiteURL: item.WebsiteURL,
         })) || [],
   };
@@ -142,6 +148,7 @@ export default async function Home() {
           Category: item.Category,
           Topic: item.Topic,
           pdfId: item.HostURL,
+          Image: item.Image,
           WebsiteURL: item.WebsiteURL,
         })) || [],
   };

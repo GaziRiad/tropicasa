@@ -1,15 +1,27 @@
-import { fetchDataByTitle } from "@/actions/actions";
+import { fetchDataByID } from "@/actions/actions";
 import { BreadCrumbComp } from "@/components/BreadCrumbComp";
 import DownloadButton from "@/components/DownloadButton";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
 import Link from "next/link";
 
 type pageProps = {
   params: { id: string };
 };
 
+export async function generateMetadata({
+  params,
+}: pageProps): Promise<Metadata> {
+  const info = await fetchDataByID(params.id);
+  const data = info.data;
+
+  return {
+    title: `${data?.Title} - Free SEO Resources & Community Contributions`,
+  };
+}
+
 async function page({ params }: pageProps) {
-  const info = await fetchDataByTitle(params.id);
+  const info = await fetchDataByID(params.id);
   const data = info.data;
 
   if (!data) return <p>LOADING...</p>;

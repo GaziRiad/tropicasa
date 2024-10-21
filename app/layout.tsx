@@ -1,3 +1,5 @@
+import PlausibleProvider from "next-plausible";
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Inter } from "next/font/google";
@@ -10,10 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: {
-    template: "Free SEO Resources & Community Contributions",
-    default: "Free SEO Resources & Community Contributions",
-  },
+  title: "Free SEO Resources & Community Contributions",
   description:
     "Explore and contribute to Resora, a dynamic platform offering an extensive library of free SEO resources. Enhance your site's success with top-notch SEO PDFs, including guides on on-page, off-page, and technical SEO. Utilize and share insights on keyword research, link building, and more, all in one community-driven space. Perfect for both learning and sharing expertise in SEO",
   icons: {
@@ -35,10 +34,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={creata.variable}>
-      <body className={`antialiased ${inter.className} bg-[#f2f3f4]`}>
-        <Navigation />
-        {children}
-      </body>
+      <PlausibleProvider domain="resora.io">
+        <body className={`antialiased ${inter.className} bg-[#f2f3f4]`}>
+          <Navigation />
+
+          {children}
+        </body>
+      </PlausibleProvider>
     </html>
   );
 }
